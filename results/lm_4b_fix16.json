@@ -1,0 +1,146 @@
+{
+ "ckpt": "runs/x4b-mercurius-lora/model.pt",
+ "layers": 32,
+ "mode": "normed",
+ "n_eval": 30,
+ "ctx": 1024,
+ "cont": 128,
+ "gen": 32,
+ "exact": {
+  "nll": 2.450027418136597,
+  "prompt_s": null,
+  "prompt4x_s": null
+ },
+ "cut16": {
+  "prompt_s": null,
+  "prompt4x_s": null,
+  "skipped_compute": 0.28791773778920304,
+  "lambda": 0.1,
+  "nll": 2.531922793388367,
+  "nll_delta": 0.08189537525177001,
+  "nll_delta_ci95": [
+   0.05600384414196015,
+   0.10934484203656515
+  ],
+  "kl": 0.08532464746385812,
+  "kl_doc_max": 0.17924736440181732,
+  "top1_agree": 0.8911458333333333,
+  "greedy_identical": 0.0,
+  "greedy_first_diff_mean": 3.6333333333333333,
+  "temperature": 1.0,
+  "kl_heldout_raw": 0.08248025973637899,
+  "kl_heldout_calibrated": 0.08248025973637899,
+  "nll_delta_heldout_raw": 0.07562508583068847,
+  "nll_delta_heldout_calibrated": 0.07562508583068847
+ },
+ "cut16_tail32": {
+  "prompt_s": null,
+  "prompt4x_s": null,
+  "skipped_compute": 0.28791773778920304,
+  "lambda": 0.1,
+  "nll": 2.524732828140259,
+  "nll_delta": 0.07470541000366211,
+  "nll_delta_ci95": [
+   0.04947245647509892,
+   0.10009243796269099
+  ],
+  "kl": 0.06785969144354263,
+  "kl_doc_max": 0.172679603099823,
+  "top1_agree": 0.8973958333333333,
+  "greedy_identical": 0.03333333333333333,
+  "greedy_first_diff_mean": 6.566666666666666,
+  "temperature": 1.0,
+  "kl_heldout_raw": 0.060363081842660905,
+  "kl_heldout_calibrated": 0.060363081842660905,
+  "nll_delta_heldout_raw": 0.07113979657491049,
+  "nll_delta_heldout_calibrated": 0.07113979657491049
+ },
+ "cut16_attnfit": {
+  "prompt_s": null,
+  "prompt4x_s": null,
+  "skipped_compute": 0.28791773778920304,
+  "lambda": 0.1,
+  "nll": 2.5259878913561504,
+  "nll_delta": 0.07596047321955363,
+  "nll_delta_ci95": [
+   0.052680357098579406,
+   0.10128917425870895
+  ],
+  "kl": 0.07764263718078533,
+  "kl_doc_max": 0.18170298635959625,
+  "top1_agree": 0.8932291666666666,
+  "greedy_identical": 0.0,
+  "greedy_first_diff_mean": 3.7,
+  "temperature": 1.0,
+  "kl_heldout_raw": 0.07487371116876602,
+  "kl_heldout_calibrated": 0.07487371116876602,
+  "nll_delta_heldout_raw": 0.06896140575408935,
+  "nll_delta_heldout_calibrated": 0.06896140575408935
+ },
+ "cut16_attnfit_tail32": {
+  "prompt_s": null,
+  "prompt4x_s": null,
+  "skipped_compute": 0.28791773778920304,
+  "lambda": 0.1,
+  "nll": 2.5189220269521075,
+  "nll_delta": 0.06889460881551107,
+  "nll_delta_ci95": [
+   0.04476749281088511,
+   0.09304356376330057
+  ],
+  "kl": 0.06240193924556176,
+  "kl_doc_max": 0.1558169424533844,
+  "top1_agree": 0.9020833333333333,
+  "greedy_identical": 0.03333333333333333,
+  "greedy_first_diff_mean": 5.333333333333333,
+  "temperature": 1.0,
+  "kl_heldout_raw": 0.05652501570681731,
+  "kl_heldout_calibrated": 0.05652501570681731,
+  "nll_delta_heldout_raw": 0.06522053082784017,
+  "nll_delta_heldout_calibrated": 0.06522053082784017
+ },
+ "cut16_mlp": {
+  "prompt_s": null,
+  "prompt4x_s": null,
+  "skipped_compute": 0.28791773778920304,
+  "lambda": 0.1,
+  "nll": 2.501151724656423,
+  "nll_delta": 0.05112430651982625,
+  "nll_delta_ci95": [
+   0.03234216789404551,
+   0.07062460203965504
+  ],
+  "kl": 0.05036525962253412,
+  "kl_doc_max": 0.11947987973690033,
+  "top1_agree": 0.9135416666666667,
+  "greedy_identical": 0.03333333333333333,
+  "greedy_first_diff_mean": 6.633333333333334,
+  "temperature": 1.0,
+  "kl_heldout_raw": 0.04915116901199023,
+  "kl_heldout_calibrated": 0.04915116901199023,
+  "nll_delta_heldout_raw": 0.048185133934021,
+  "nll_delta_heldout_calibrated": 0.048185133934021
+ },
+ "cut16_mlp_tail32": {
+  "prompt_s": null,
+  "prompt4x_s": null,
+  "skipped_compute": 0.28791773778920304,
+  "lambda": 0.1,
+  "nll": 2.496798268953959,
+  "nll_delta": 0.046770850817362465,
+  "nll_delta_ci95": [
+   0.03012644370396932,
+   0.06361014862855276
+  ],
+  "kl": 0.04196505018820365,
+  "kl_doc_max": 0.10145026445388794,
+  "top1_agree": 0.9177083333333333,
+  "greedy_identical": 0.03333333333333333,
+  "greedy_first_diff_mean": 8.333333333333334,
+  "temperature": 1.0,
+  "kl_heldout_raw": 0.03789900230864684,
+  "kl_heldout_calibrated": 0.03789900230864684,
+  "nll_delta_heldout_raw": 0.04407200813293457,
+  "nll_delta_heldout_calibrated": 0.04407200813293457
+ }
+}

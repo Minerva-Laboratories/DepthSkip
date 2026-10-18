@@ -1,0 +1,59 @@
+{
+ "ckpt": "runs/x4b-mercurius-lora/model.pt",
+ "openbookqa": {
+  "exact": {
+   "acc": 0.7966666666666666,
+   "answer_flips": 0.0
+  },
+  "floor": {
+   "acc": 0.8033333333333333,
+   "answer_flips": 0.023333333333333334
+  },
+  "cut16": {
+   "acc": 0.4033333333333333,
+   "answer_flips": 0.63
+  },
+  "cut16_tail32": {
+   "acc": 0.71,
+   "answer_flips": 0.14333333333333334
+  },
+  "cut16_ema": {
+   "acc": 0.41,
+   "answer_flips": 0.6133333333333333
+  },
+  "cut16_ema_tail32": {
+   "acc": 0.7233333333333334,
+   "answer_flips": 0.11666666666666667
+  },
+  "n": 300,
+  "seconds": 2105.3354461193085
+ },
+ "commonsenseqa": {
+  "exact": {
+   "acc": 0.7233333333333334,
+   "answer_flips": 0.0
+  },
+  "floor": {
+   "acc": 0.7133333333333334,
+   "answer_flips": 0.043333333333333335
+  },
+  "cut16": {
+   "acc": 0.2833333333333333,
+   "answer_flips": 0.8033333333333333
+  },
+  "cut16_tail32": {
+   "acc": 0.63,
+   "answer_flips": 0.19
+  },
+  "cut16_ema": {
+   "acc": 0.2866666666666667,
+   "answer_flips": 0.7966666666666666
+  },
+  "cut16_ema_tail32": {
+   "acc": 0.6133333333333333,
+   "answer_flips": 0.18
+  },
+  "n": 300,
+  "seconds": 2031.5258708000183
+ }
+}

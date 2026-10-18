@@ -1,0 +1,58 @@
+{
+ "ckpt": "runs/x4b-mercurius-lora/model.pt",
+ "layers": 32,
+ "mode": "normed",
+ "n_eval": 30,
+ "ctx": 1024,
+ "cont": 128,
+ "gen": 32,
+ "exact": {
+  "nll": 2.450027418136597,
+  "prompt_s": null,
+  "prompt4x_s": null
+ },
+ "cut24": {
+  "prompt_s": null,
+  "prompt4x_s": null,
+  "skipped_compute": 0.14395886889460152,
+  "lambda": 0.01,
+  "nll": 2.4580867966016133,
+  "nll_delta": 0.008059378465016682,
+  "nll_delta_ci95": [
+   0.0019306517640749615,
+   0.013902664879957833
+  ],
+  "kl": 0.008428713120520116,
+  "kl_doc_max": 0.01523803360760212,
+  "top1_agree": 0.9630208333333333,
+  "greedy_identical": 0.26666666666666666,
+  "greedy_first_diff_mean": 17.2,
+  "temperature": 1.0,
+  "kl_heldout_raw": 0.009142506464074055,
+  "kl_heldout_calibrated": 0.009142506464074055,
+  "nll_delta_heldout_raw": 0.012757293383280436,
+  "nll_delta_heldout_calibrated": 0.012757293383280436
+ },
+ "cut24_floor": {
+  "prompt_s": null,
+  "prompt4x_s": null,
+  "skipped_compute": 0.14395886889460152,
+  "lambda": 0.01,
+  "nll": 2.449764891465505,
+  "nll_delta": -0.00026252667109171547,
+  "nll_delta_ci95": [
+   -0.0027216049035390217,
+   0.0023098131020863845
+  ],
+  "kl": 0.004004824607788274,
+  "kl_doc_max": 0.007541755214333534,
+  "top1_agree": 0.9625,
+  "greedy_identical": 0.5333333333333333,
+  "greedy_first_diff_mean": 23.0,
+  "temperature": 1.0,
+  "kl_heldout_raw": 0.0039618096236760415,
+  "kl_heldout_calibrated": 0.0039618096236760415,
+  "nll_delta_heldout_raw": 0.001394812266031901,
+  "nll_delta_heldout_calibrated": 0.001394812266031901
+ }
+}

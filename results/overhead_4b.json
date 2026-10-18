@@ -1,0 +1,122 @@
+{
+ "ckpt": "runs/x4b-mercurius-lora/model.pt",
+ "attn_impl": "sdpa",
+ "prefill_chunk": 4096,
+ "1024": {
+  "exact_full": 0.9668466796875,
+  "skip_head_only": 0.65266552734375,
+  "skip_head_plus_tail": 1.079017333984375,
+  "tail32_on_skipped_cache": 0.43026605224609377,
+  "tail32_on_exact_cache": 0.4335030212402344,
+  "decode1_on_exact_cache": 1.5785625,
+  "tail32_total": 0.4441382446289063,
+  "tail32_attention_layers": 0.13752041625976563,
+  "tail32_deltanet_layers": 0.3008058891296387,
+  "tail32_outside_layers": 0.005811939239501962,
+  "tail32_slowest_layers": [
+   [
+    0.0179,
+    3,
+    "full_attention"
+   ],
+   [
+    0.0173,
+    15,
+    "full_attention"
+   ],
+   [
+    0.0172,
+    23,
+    "full_attention"
+   ],
+   [
+    0.0171,
+    31,
+    "full_attention"
+   ],
+   [
+    0.0171,
+    19,
+    "full_attention"
+   ]
+  ]
+ },
+ "4096": {
+  "exact_full": 3.59033447265625,
+  "skip_head_only": 2.445283935546875,
+  "skip_head_plus_tail": 2.914553955078125,
+  "tail32_on_skipped_cache": 0.5060756530761719,
+  "tail32_on_exact_cache": 0.5026359558105469,
+  "decode1_on_exact_cache": 0.40747613525390625,
+  "tail32_total": 0.513103271484375,
+  "tail32_attention_layers": 0.1755334415435791,
+  "tail32_deltanet_layers": 0.3271902408599853,
+  "tail32_outside_layers": 0.010379589080810492,
+  "tail32_slowest_layers": [
+   [
+    0.0257,
+    0,
+    "linear_attention"
+   ],
+   [
+    0.025,
+    3,
+    "full_attention"
+   ],
+   [
+    0.0232,
+    19,
+    "full_attention"
+   ],
+   [
+    0.023,
+    23,
+    "full_attention"
+   ],
+   [
+    0.0226,
+    7,
+    "full_attention"
+   ]
+  ]
+ },
+ "15360": {
+  "exact_full": 16.415322265625,
+  "skip_head_only": 11.14603125,
+  "skip_head_plus_tail": 11.812974609375,
+  "tail32_on_skipped_cache": 0.697275390625,
+  "tail32_on_exact_cache": 0.6933150634765625,
+  "decode1_on_exact_cache": 0.46012210083007815,
+  "tail32_total": 0.6985498046875,
+  "tail32_attention_layers": 0.38015066146850585,
+  "tail32_deltanet_layers": 0.3086669445037842,
+  "tail32_outside_layers": 0.009732198715210028,
+  "tail32_slowest_layers": [
+   [
+    0.0581,
+    3,
+    "full_attention"
+   ],
+   [
+    0.0555,
+    19,
+    "full_attention"
+   ],
+   [
+    0.0525,
+    23,
+    "full_attention"
+   ],
+   [
+    0.0481,
+    27,
+    "full_attention"
+   ],
+   [
+    0.0475,
+    7,
+    "full_attention"
+   ]
+  ]
+ }
+}

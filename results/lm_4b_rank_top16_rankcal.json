@@ -1,0 +1,110 @@
+{
+ "24_none": {
+  "positions_test": 2560,
+  "exact_top_in_candidates": 1.0,
+  "odir_lambda": 1.0,
+  "fitted_T": 0.998772885062729,
+  "identity": {
+   "top1_agree_exact": 0.95859375,
+   "gold_acc": 0.51328125,
+   "kl_candidates": 0.00871621557511831
+  },
+  "temperature": {
+   "top1_agree_exact": 0.95859375,
+   "gold_acc": 0.51328125,
+   "kl_candidates": 0.008714984635930135
+  },
+  "vector": {
+   "top1_agree_exact": 0.95859375,
+   "gold_acc": 0.51328125,
+   "kl_candidates": 0.008716879000479566
+  },
+  "odir": {
+   "top1_agree_exact": 0.958203125,
+   "gold_acc": 0.5109375,
+   "kl_candidates": 0.008715334918059151
+  },
+  "exact_gold_acc": 0.5109375
+ },
+ "24_floor": {
+  "positions_test": 2560,
+  "exact_top_in_candidates": 1.0,
+  "odir_lambda": 1.0,
+  "fitted_T": 1.0017672148342103,
+  "identity": {
+   "top1_agree_exact": 0.965625,
+   "gold_acc": 0.512109375,
+   "kl_candidates": 0.0033708376778979
+  },
+  "temperature": {
+   "top1_agree_exact": 0.965625,
+   "gold_acc": 0.512109375,
+   "kl_candidates": 0.003369939339489867
+  },
+  "vector": {
+   "top1_agree_exact": 0.963671875,
+   "gold_acc": 0.510546875,
+   "kl_candidates": 0.003370422928009793
+  },
+  "odir": {
+   "top1_agree_exact": 0.9625,
+   "gold_acc": 0.5109375,
+   "kl_candidates": 0.0033706662253413858
+  },
+  "exact_gold_acc": 0.5109375
+ },
+ "16_none": {
+  "positions_test": 2560,
+  "exact_top_in_candidates": 0.9953125,
+  "odir_lambda": 1.0,
+  "fitted_T": 1.0052476786883076,
+  "identity": {
+   "top1_agree_exact": 0.889453125,
+   "gold_acc": 0.5015625,
+   "kl_candidates": 0.062441341657251494
+  },
+  "temperature": {
+   "top1_agree_exact": 0.889453125,
+   "gold_acc": 0.5015625,
+   "kl_candidates": 0.062409146487242585
+  },
+  "vector": {
+   "top1_agree_exact": 0.8890625,
+   "gold_acc": 0.501171875,
+   "kl_candidates": 0.062438520352746885
+  },
+  "odir": {
+   "top1_agree_exact": 0.8890625,
+   "gold_acc": 0.501171875,
+   "kl_candidates": 0.06241530385928952
+  },
+  "exact_gold_acc": 0.5109375
+ },
+ "16_floor": {
+  "positions_test": 2560,
+  "exact_top_in_candidates": 1.0,
+  "odir_lambda": 1.0,
+  "fitted_T": 1.0017672148342103,
+  "identity": {
+   "top1_agree_exact": 0.965625,
+   "gold_acc": 0.512109375,
+   "kl_candidates": 0.0033708376778979
+  },
+  "temperature": {
+   "top1_agree_exact": 0.965625,
+   "gold_acc": 0.512109375,
+   "kl_candidates": 0.003369939339489867
+  },
+  "vector": {
+   "top1_agree_exact": 0.963671875,
+   "gold_acc": 0.510546875,
+   "kl_candidates": 0.003370422928009793
+  },
+  "odir": {
+   "top1_agree_exact": 0.9625,
+   "gold_acc": 0.5109375,
+   "kl_candidates": 0.0033706662253413858
+  },
+  "exact_gold_acc": 0.5109375
+ }
+}

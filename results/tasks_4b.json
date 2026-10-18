@@ -1,0 +1,85 @@
+{
+ "ckpt": "runs/x4b-mercurius-lora/model.pt",
+ "openbookqa": {
+  "exact": {
+   "acc": 0.7966666666666666,
+   "answer_flips": 0.0
+  },
+  "floor": {
+   "acc": 0.8033333333333333,
+   "answer_flips": 0.023333333333333334
+  },
+  "cut24": {
+   "acc": 0.8133333333333334,
+   "answer_flips": 0.06
+  },
+  "cut16": {
+   "acc": 0.4033333333333333,
+   "answer_flips": 0.63
+  },
+  "n": 300,
+  "seconds": 1356.3641436100006
+ },
+ "commonsenseqa": {
+  "exact": {
+   "acc": 0.7233333333333334,
+   "answer_flips": 0.0
+  },
+  "floor": {
+   "acc": 0.7133333333333334,
+   "answer_flips": 0.043333333333333335
+  },
+  "cut24": {
+   "acc": 0.7733333333333333,
+   "answer_flips": 0.12666666666666668
+  },
+  "cut16": {
+   "acc": 0.2833333333333333,
+   "answer_flips": 0.8033333333333333
+  },
+  "n": 300,
+  "seconds": 1292.50426197052
+ },
+ "pubmedqa": {
+  "exact": {
+   "acc": 0.83,
+   "answer_flips": 0.0
+  },
+  "floor": {
+   "acc": 0.8333333333333334,
+   "answer_flips": 0.023333333333333334
+  },
+  "cut24": {
+   "acc": 0.83,
+   "answer_flips": 0.02
+  },
+  "cut16": {
+   "acc": 0.82,
+   "answer_flips": 0.056666666666666664
+  },
+  "n": 300,
+  "seconds": 2505.783037662506
+ },
+ "gsm8k": {
+  "exact": {
+   "acc": 0.05,
+   "answer_flips": 0.0,
+   "generation_identical": 1.0,
+   "mean_len": 198.4
+  },
+  "floor": {
+   "acc": 0.1,
+   "answer_flips": 0.55,
+   "generation_identical": 0.1,
+   "mean_len": 199.35
+  },
+  "cut24": {
+   "acc": 0.05,
+   "answer_flips": 0.5,
+   "generation_identical": 0.2,
+   "mean_len": 199.35
+  },
+  "n": 20,
+  "seconds": 6597.983190774918
+ }
+}
