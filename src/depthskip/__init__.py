@@ -1,4 +1,4 @@
-"""Terrace: training-free layer skipping for the prompt pass of hybrid (DeltaNet + attention) LMs.
+"""DepthSkip: training-free layer skipping for the prompt pass of hybrid (DeltaNet + attention) LMs.
 
 Prompt tokens stop at a cut layer; every layer above it writes only its cache, from a closed-form (ridge) map of the
 cut's input. Depth can differ per token (graded windows: recent and first tokens deeper), and the upper layers can

@@ -2,7 +2,7 @@
 import pytest
 import torch
 
-from terrace import Model, use_reference_kernels
+from depthskip import Model, use_reference_kernels
 
 use_reference_kernels(True)
 

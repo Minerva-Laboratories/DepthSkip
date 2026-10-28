@@ -18,8 +18,8 @@ import torch
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import add_model_args, gpu_lock, load_backbone, model_name, model_ref  # noqa: E402
-from terrace.maps import SkipMaps  # noqa: E402
-from terrace.depth import segment_cache  # noqa: E402
+from depthskip.maps import SkipMaps  # noqa: E402
+from depthskip.depth import segment_cache  # noqa: E402
 from lm import DATA, prompt_cache  # noqa: E402
 
 

@@ -1,4 +1,4 @@
-"""Per-token depth for the skipped prompt pass ("foveated depth", terrace/depth.py) against the plain cuts
+"""Per-token depth for the skipped prompt pass ("foveated depth", depthskip/depth.py) against the plain cuts
 and the two-call exact tail (RESULTS 21.2-21.3).
 
 Arms (L = all layers):
@@ -29,8 +29,8 @@ import torch
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import add_model_args, gpu_lock, load_backbone, model_name, model_ref  # noqa: E402
-from terrace.maps import SkipMaps, _stock, skipped_share  # noqa: E402
-from terrace.depth import DepthPlan, depth_cache, plan_skipped, seg_lengths, segment_cache  # noqa: E402
+from depthskip.maps import SkipMaps, _stock, skipped_share  # noqa: E402
+from depthskip.depth import DepthPlan, depth_cache, plan_skipped, seg_lengths, segment_cache  # noqa: E402
 from lm import DATA, continue_logits, prompt_cache, timed  # noqa: E402
 from tasks import chat, mc_items  # noqa: E402
 
@@ -90,7 +90,7 @@ def main():
                      "d_sel10_24": lambda: DepthPlan({16: m16, 24: m24}, L, [(32, None)], (0.10, 24, 64)),
                      "d_g512_sel5": lambda: DepthPlan({16: m16, 24: m24}, L, [(32, None), (512, 24)], (0.05, L, 64))}
         if a.parts:
-            from terrace.parts import fit_parts, part_share, part_skip
+            from depthskip.parts import fit_parts, part_share, part_skip
             path = os.path.join(a.maps_dir, f"{name}_parts16.pt")
             if os.path.exists(path):
                 fit = torch.load(path, weights_only=False)

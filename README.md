@@ -1,4 +1,4 @@
-# Terrace
+# DepthSkip
 
 Training-free layer skipping for the **prompt pass** of hybrid DeltaNet + attention language models (Qwen3.5 family,
 and Mercurius's MLA / GDN-2 variants by duck typing).
@@ -16,7 +16,7 @@ every layer and read that cache, so decoding is unchanged and only the prompt pa
 Nothing is trained. The maps are fitted from one pass of the frozen model over calibration text: 200 documents (48k
 tokens) take 2 minutes for Mercurius-1-4B at cut 24 and 5 minutes for the 9B at cut 16 on the Orin.
 
-The name: the prompt is cut into terraces of different depth, deep near the end and shallow further back.
+The name: the prompt is cut into depthskips of different depth, deep near the end and shallow further back.
 
 ## Install
 
@@ -30,7 +30,7 @@ python -m pytest -q           # CPU, tiny random Qwen3.5 (20 tests)
 
 ```python
 import torch
-from terrace import Model, SkipMaps, fit_skip_maps, segment_prefill
+from depthskip import Model, SkipMaps, fit_skip_maps, segment_prefill
 
 model = Model.from_pretrained("Qwen/Qwen3.5-9B", dtype="bfloat16", device="cuda", prefill_chunk=4096)
 
@@ -69,7 +69,7 @@ A single cut for the whole prompt: `model.skip_state = SkipMaps.load(path, "cuda
 
 Anything with the same attributes as `Model` works in its place (`lm`, `tokenize`, `device`, `hidden_size`,
 `cfg.prefill_chunk`, `skip_state`, `prefix_cache_batch`, `_prefill`). OpenDecider's `Backbone` is one; its decision
-model uses Terrace for its state pass.
+model uses DepthSkip for its state pass.
 
 ## Results
 
@@ -175,9 +175,9 @@ Coming soon. These runs are still going: `f4/f64/f256_g512` and `f64_tail32` on 
 
 ## Reproduce
 
-Each script takes `--model <HF path or id>` (plain model through `terrace.Model`) or `--ckpt <OpenDecider checkpoint>`
+Each script takes `--model <HF path or id>` (plain model through `depthskip.Model`) or `--ckpt <OpenDecider checkpoint>`
 (that checkpoint's backbone; how the tables above were measured; needs `opendecider`). Calibration and evaluation text
-comes from a FineWeb-Edu parquet (`TERRACE_DATA`). On a shared GPU, set `TERRACE_GPU_LOCK=<lock file>` to serialize
+comes from a FineWeb-Edu parquet (`DEPTHSKIP_DATA`). On a shared GPU, set `DEPTHSKIP_GPU_LOCK=<lock file>` to serialize
 jobs with flock.
 
 | Script | Measures |
@@ -197,7 +197,7 @@ decision-model evaluations stay in OpenDecider. They use its calibrators and dec
 ## Related work and what is new
 
 - **SwiftKV** (Qiao et al., arXiv 2410.03960) computes the upper layers' prompt KV from one earlier layer's output and
-  adapts the model by distillation. Terrace uses the same split with no training: closed-form ridge maps, cache-only
+  adapts the model by distillation. DepthSkip uses the same split with no training: closed-form ridge maps, cache-only
   paths for DeltaNet recurrent and conv state as well as attention, and one depth for all tokens or a depth per token.
 - **KV Prediction** (Horton et al., arXiv 2410.08391) predicts the base model's cache with a small trained auxiliary
   model.
@@ -205,7 +205,7 @@ decision-model evaluations stay in OpenDecider. They use its calibrators and dec
   tokens beyond it. **LazyLLM** (arXiv 2407.14057) and **GemFilter** (arXiv 2409.17422) prune or select prompt tokens
   by layer. These are the closest to graded depth, which picks deep tokens by position instead and keeps every token's
   cache in every layer.
-- **L2A** (arXiv 2603.17484) learns per token whether to use global attention. That is trained; Terrace is not.
+- **L2A** (arXiv 2603.17484) learns per token whether to use global attention. That is trained; DepthSkip is not.
 
 The parts that look new:
 - the training-free fit;

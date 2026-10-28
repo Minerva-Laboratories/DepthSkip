@@ -1,4 +1,4 @@
-"""Skipped prompt pass (terrace/maps.py) for ordinary text generation: does it hold for a plain LM workload?
+"""Skipped prompt pass (depthskip/maps.py) for ordinary text generation: does it hold for a plain LM workload?
 
 As in SwiftKV, prompt tokens run layers 0..cut-1 and every layer above the cut writes only its cache from a predicted
 input; the LAST prompt token and every generated token run all layers. Measured on FineWeb-Edu documents (ODC-BY,
@@ -22,7 +22,7 @@ import torch
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import DATA, add_model_args, gpu_lock, load_backbone, model_name, model_ref, timed  # noqa: E402
-from terrace.maps import MLPSurrogates, SkipMaps, _stock, fit_mlp_surrogates, fit_skip_maps, skipped_share  # noqa: E402
+from depthskip.maps import MLPSurrogates, SkipMaps, _stock, fit_mlp_surrogates, fit_skip_maps, skipped_share  # noqa: E402
 
 
 @torch.no_grad()

@@ -337,7 +337,7 @@ def _pairs(model, text: str, cut: int, mode: str, alphas=()):
 def fit_skip_maps(model, texts, held_texts, cut: int, mode: str = "normed", lams=LAMS, log=print, alphas=()) -> SkipMaps:
     """Ridge per layer j >= cut on [x, 1] from the normal equations (float64 sums on the GPU); one ridge strength
     (relative to the mean diagonal) for all layers, by held-out squared error. Calls the model with the skip off.
-    model: anything with .lm, .tokenize, .prefix_cache_batch, .hidden_size, .device (terrace.Model, or a compatible
+    model: anything with .lm, .tokenize, .prefix_cache_batch, .hidden_size, .device (depthskip.Model, or a compatible
     wrapper such as OpenDecider's Backbone)."""
     prev, model.skip_state = getattr(model, "skip_state", None), None
     try:

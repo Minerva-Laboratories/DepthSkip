@@ -1,4 +1,4 @@
-"""Skipped prompt pass (terrace/maps.py) on ordinary LLM tasks: do answers change beyond the model's own
+"""Skipped prompt pass (depthskip/maps.py) on ordinary LLM tasks: do answers change beyond the model's own
 rounding noise?
 
 Arms: exact; floor (the exact model with its prompt pass in 32-token slices: same math, different rounding: how often
@@ -26,7 +26,7 @@ import torch
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import add_model_args, gpu_lock, load_backbone, model_name, model_ref  # noqa: E402
-from terrace.maps import SkipMaps  # noqa: E402
+from depthskip.maps import SkipMaps  # noqa: E402
 from lm import continue_logits, prompt_cache  # noqa: E402
 
 LETTERS = "ABCDE"
@@ -63,7 +63,7 @@ def mc_items(path, n):
 
 def gsm_items(n):
     from datasets import load_dataset
-    ds = load_dataset("openai/gsm8k", "main", split="test", cache_dir=os.environ.get("TERRACE_HF_CACHE"))
+    ds = load_dataset("openai/gsm8k", "main", split="test", cache_dir=os.environ.get("DEPTHSKIP_HF_CACHE"))
     out = []
     for r in ds.select(range(n)):
         ans = r["answer"].split("####")[-1].strip().replace(",", "")
@@ -136,7 +136,7 @@ def main():
                 m = re.search(r"tail(\d+)", v)
                 tail = int(m.group(1)) if m else 0
                 if v.startswith("mlp"):
-                    from terrace.maps import MLPSurrogates
+                    from depthskip.maps import MLPSurrogates
                     arms[f"cut{c}_{v}"] = Arm(bb, MLPSurrogates.load(os.path.join(a.maps_dir, f"{name}_mlp{c}.pt"),
                                                                      bb.device, tail=tail))
                     continue

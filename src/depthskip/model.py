@@ -1,4 +1,4 @@
-"""A thin wrapper over a Hugging Face causal LM (Qwen3.5 text models) with what Terrace needs: tokenization, a chunked
+"""A thin wrapper over a Hugging Face causal LM (Qwen3.5 text models) with what DepthSkip needs: tokenization, a chunked
 prompt pass that returns the HF cache (optionally with a skip installed), and a prefix pass the fitters drive.
 
 Any object with the same attributes works in its place (duck typing): lm (the decoder: embed_tokens, layers, norm),

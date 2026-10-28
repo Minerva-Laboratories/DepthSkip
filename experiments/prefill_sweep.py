@@ -2,7 +2,7 @@
 continuation. The same pass serves the decision model (state memory) and LLM use (prompt cache), so this measures
 the engine, not either use.
 
-Per model, arm (exact / cut24 / cut16, the SwiftKV skip of terrace/maps.py) and length: wall time of one
+Per model, arm (exact / cut24 / cut16, the SwiftKV skip of depthskip/maps.py) and length: wall time of one
 prompt pass in 4,096-token slices (median of 3 after a warm-up below 64k, one timing from 64k), tokens/s, peak GPU
 memory over the weights and the cache size. Prompts are FineWeb-Edu documents concatenated and cut to length.
 
@@ -32,7 +32,7 @@ import torch
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import add_model_args, gpu_lock, load_backbone, model_name, model_ref  # noqa: E402
-from terrace.maps import SkipMaps  # noqa: E402
+from depthskip.maps import SkipMaps  # noqa: E402
 from lm import DATA  # noqa: E402
 
 GB = 2 ** 30
@@ -284,7 +284,7 @@ def prompt_pass(bb, ids, maps, lean_on, keep_last=False, kv8=False):
 
 
 def _stock_attention(bb):
-    from terrace.maps import _stock
+    from depthskip.maps import _stock
     return any(t == "full_attention" and _stock(l.self_attn) for t, l in zip(bb.layer_types, bb.lm.layers))
 
 

@@ -1,4 +1,4 @@
-"""Time and memory of the skipped prompt pass (terrace/maps.py) against the exact one.
+"""Time and memory of the skipped prompt pass (depthskip/maps.py) against the exact one.
 
 Per variant and prompt length: prompt-pass wall time (median of 3 after a warm-up), time to first token (prompt pass
 + the last prompt token through every layer), peak GPU memory during the pass, the memory the maps hold, and the
@@ -23,7 +23,7 @@ import torch
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import add_model_args, gpu_lock, load_backbone, model_name, model_ref  # noqa: E402
-from terrace.maps import SkipMaps, _stock, skipped_share  # noqa: E402
+from depthskip.maps import SkipMaps, _stock, skipped_share  # noqa: E402
 from lm import DATA, continue_logits, prompt_cache  # noqa: E402
 
 GB = 2 ** 30
@@ -75,7 +75,7 @@ def main():
                 if kind == "cut":
                     maps = SkipMaps.load(os.path.join(a.maps_dir, f), bb.device, tail=tail)
                 else:
-                    from terrace.maps import MLPSurrogates
+                    from depthskip.maps import MLPSurrogates
                     maps = MLPSurrogates.load(os.path.join(a.maps_dir, f), bb.device, tail=tail)
             torch.cuda.empty_cache()
             held = torch.cuda.memory_allocated()

@@ -12,8 +12,8 @@ import torch
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import add_model_args, gpu_lock, load_backbone  # noqa: E402
-from terrace.model import cache_tensors  # noqa: E402
-from terrace.maps import SkipMaps, _merc, _stock  # noqa: E402
+from depthskip.model import cache_tensors  # noqa: E402
+from depthskip.maps import SkipMaps, _merc, _stock  # noqa: E402
 
 TEXT = ("The customer wrote on Monday that the blender arrived damaged and asked for a refund. An agent replied the "
         "same day with a return label. On Wednesday the customer said the label did not work. ") * 6

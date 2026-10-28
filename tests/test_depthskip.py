@@ -6,9 +6,9 @@ import pytest
 import torch
 
 from conftest import seqs, tiny_model
-from terrace import (DepthPlan, MLPSurrogates, PartSkip, SkipMaps, cache_tensors, depth_cache, fit_mlp_surrogates,
+from depthskip import (DepthPlan, MLPSurrogates, PartSkip, SkipMaps, cache_tensors, depth_cache, fit_mlp_surrogates,
                      fit_skip_maps, seg_lengths, segment_cache, skipped_share)
-from terrace.maps import ema_scan
+from depthskip.maps import ema_scan
 
 
 def _passthrough_above(model, cut):
@@ -199,7 +199,7 @@ def test_part_skip_exact_when_parts_are_zero(mlp, attn):
 
 
 def test_fit_parts_recovers_zero_parts():
-    from terrace import fit_parts, part_skip
+    from depthskip import fit_parts, part_skip
     model = tiny_model()
     _passthrough_above(model, 4)
     texts = seqs(8, seed=3)
