@@ -1,7 +1,7 @@
 """Shared pieces of the experiment scripts: model loading, the optional GPU lock, timing, the evaluation text.
 
 Models: --model <HF path or hub id> loads a plain causal LM through depthskip.Model. --ckpt <OpenDecider checkpoint> loads
-that checkpoint's backbone instead (needs the opendecider package; how the RESULTS numbers for the Mercurius-1-4B and
+that checkpoint's backbone instead (needs the opendecider package; how the OpenDecider RESULTS §21 numbers for the Mercurius-1-4B and
 OpenDecider 9B backbones were measured). Both expose the same calls (lm, tok, tokenize, prefill, forward, head_logits,
 layer_types, cfg.prefill_chunk, skip_state).
 """

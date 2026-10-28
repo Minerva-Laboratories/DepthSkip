@@ -1,4 +1,4 @@
-"""Where does the exact tail's extra time go? (RESULTS 21.3: cut16 + tail32 costs +0.35 to +0.95 s over cut16, growing with
+"""Where does the exact tail's extra time go? (OpenDecider RESULTS §21.3: cut16 + tail32 costs +0.35 to +0.95 s over cut16, growing with
 the prompt, far more than 32 tokens of compute.)
 
 Per length: the skipped head pass alone (T - 32 tokens), the 32-token tail pass on its cache, the same 32-token
@@ -40,7 +40,7 @@ def main():
     ap.add_argument("--lengths", nargs="*", type=int, default=[1024, 4096, 15360])
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
-    with gpu_lock("skipkv_overhead"):
+    with gpu_lock("depthskip_overhead"):
         bb = load_backbone(a)
         bb.skip_state = None
         name = model_name(a)

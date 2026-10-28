@@ -8,7 +8,7 @@ memory over the weights and the cache size. Prompts are FineWeb-Edu documents co
 
 Long prompts on the stock attention layers (Qwen3.5-9B): the stock cache grows by torch.cat (a full copy of every
 layer's K/V per slice) and the SDPA path builds a (slice x prompt) mask and expands K/V to every query head. Past
-~200k tokens that exceeds memory (RESULTS 21.3: 262k stopped at the 12 GB guard). --lean (default on) instead writes
+~200k tokens that exceeds memory (OpenDecider RESULTS §21.3: 262k stopped at the 12 GB guard). --lean (default on) instead writes
 K/V into a buffer allocated once for the whole prompt and attends each slice to its prefix with the wide flash
 kernel (wide_attention: GQA without expansion, causal with offset, no mask). Same math; --check compares the two
 paths' final hidden states at a short length. Mercurius's MLA layers keep their deployed compressed cache (4-bit

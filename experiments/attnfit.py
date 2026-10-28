@@ -1,7 +1,7 @@
 """Fine-tune the attention layers' skip maps on what attention reads (a local, SwiftKV-style fit; frozen model).
 
-The closed-form maps (skipkv.fit_skip_maps) minimize the error of each upper layer's input uniformly over directions
-and tokens. The generation tests (RESULTS 21.2) put most of the damage in the full-attention layers' caches. Here each
+The closed-form maps (depthskip.fit_skip_maps) minimize the error of each upper layer's input uniformly over directions
+and tokens. The generation tests (OpenDecider RESULTS §21.2) put most of the damage in the full-attention layers' caches. Here each
 full-attention layer j above the cut gets its map W_j trained so that queries of LATER tokens (exact, as at deployment:
 tokens after the prompt run every layer) get the same attention output from the predicted prompt keys / values as from
 the exact ones:
@@ -95,7 +95,7 @@ def main():
     ap.add_argument("--lr", type=float, default=2e-5)
     ap.add_argument("--pull", type=float, default=1e-3, help="L2 pull of W toward the closed-form map (relative)")
     a = ap.parse_args()
-    with gpu_lock("skipkv_attnfit"):
+    with gpu_lock("depthskip_attnfit"):
         bb = load_backbone(a)
         name = model_name(a)
         maps = SkipMaps.load(os.path.join(a.maps_dir, f"{name}_lm_cut{a.cut}_normed.pt"), bb.device)

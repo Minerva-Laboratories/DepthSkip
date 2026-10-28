@@ -1,4 +1,4 @@
-"""GPU check of skipkv's cache-only layer paths on a real backbone: with the map predicting the true input (cut at the
+"""GPU check of DepthSkip's cache-only layer paths on a real backbone: with the map predicting the true input (cut at the
 last layer, or at the one before, comparing only that layer), the skipped state pass must write the same cache as the
 exact pass. Covers whatever mixers the checkpoint has (stock Qwen3.5, Mercurius MLA + GDN-2).
 
@@ -23,7 +23,7 @@ def main():
     ap = argparse.ArgumentParser()
     add_model_args(ap)
     a = ap.parse_args()
-    with gpu_lock("skipkv_check"):
+    with gpu_lock("depthskip_check"):
         bb = load_backbone(a)
         L, D = len(bb.lm.layers), bb.hidden_size
         seqs = bb.tokenize([TEXT, TEXT[:300]])

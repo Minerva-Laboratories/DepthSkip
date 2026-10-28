@@ -169,7 +169,7 @@ def main():
                          "exact log-probs of those candidates (rank-calibration study, OpenDecider scripts/skipkv_rankcal.py)")
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
-    with gpu_lock("skipkv_lm"):
+    with gpu_lock("depthskip_lm"):
         bb = load_backbone(a)
         texts = pq.read_table(DATA, columns=["text"]).column("text").to_pylist()[:5000]
         enc = lambda t: bb.tok(t, add_special_tokens=False)["input_ids"]

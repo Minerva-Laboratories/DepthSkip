@@ -1,19 +1,37 @@
 [build-system]
-requires = ["setuptools>=69"]
+requires = ["setuptools>=77"]                     # PEP 639 license metadata (SPDX string + license-files)
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "depthskip"
 version = "0.1.0"
-description = "Training-free layer skipping for the prompt pass of hybrid DeltaNet/attention LMs (graded per-token depth, part skips)."
+description = "Training-free layer skipping for the prompt (prefill) pass of hybrid DeltaNet + attention LMs: closed-form ridge skip maps, graded per-token depth, MLP / attention part skips."
+readme = "README.md"
 requires-python = ">=3.10"
 license = "Apache-2.0"
 license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "Minerva Laboratories" }]
+keywords = ["llm-inference", "prefill", "layer-skipping", "kv-cache", "long-context", "gated-deltanet", "qwen", "swiftkv"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
 dependencies = ["torch>=2.4", "transformers>=5.2", "numpy"]
 
 [project.optional-dependencies]
-experiments = ["pyarrow", "datasets"]
+experiments = ["pyarrow", "datasets"]             # FineWeb-Edu parquet, GSM8K (experiments/)
 test = ["pytest"]
+
+[project.urls]
+Homepage = "https://github.com/Minerva-Laboratories/DepthSkip"
+Repository = "https://github.com/Minerva-Laboratories/DepthSkip"
+Issues = "https://github.com/Minerva-Laboratories/DepthSkip/issues"
+HgRT = "https://github.com/Minerva-Laboratories/HgRT"
+OpenDecider = "https://github.com/Minerva-Laboratories/OpenDecider"
+FoveaKV = "https://github.com/Minerva-Laboratories/FoveaKV"
+SparsePage = "https://github.com/Minerva-Laboratories/SparsePage"
 
 [tool.setuptools.packages.find]
 where = ["src"]

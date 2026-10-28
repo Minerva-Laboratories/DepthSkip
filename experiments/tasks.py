@@ -125,7 +125,7 @@ def main():
     ap.add_argument("--gsm-arms", nargs="+", default=None, help="arms run on gsm8k (generation is slow); default all")
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
-    with gpu_lock("skipkv_tasks"):
+    with gpu_lock("depthskip_tasks"):
         bb = load_backbone(a)
         name = model_name(a)
         arms = {"exact": Arm(bb), "floor": Arm(bb, chunk=32)}
@@ -180,7 +180,7 @@ def main():
                         logits[k][i, : len(z)] = z
                         pred[k].append(int(z.argmax()))
                 np.savez(a.out.replace(".json", f"_{task}_logits.npz"), gold=np.array([g for _, _, g in items]),
-                         **logits)                                # option logits per arm (scripts/skipkv_calib.py)
+                         **logits)                                # option logits per arm (OpenDecider scripts/skipkv_calib.py)
                 golds = [g for _, _, g in items]
                 r = {k: {"acc": float(np.mean([p == g for p, g in zip(pred[k], golds)])),
                          "answer_flips": float(np.mean([p != q for p, q in zip(pred[k], pred["exact"])]))}

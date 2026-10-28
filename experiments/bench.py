@@ -4,7 +4,7 @@ Per variant and prompt length: prompt-pass wall time (median of 3 after a warm-u
 + the last prompt token through every layer), peak GPU memory during the pass, the memory the maps hold, and the
 cache size. Prompts are FineWeb-Edu text (concatenated documents, cut to length). Variants: exact; cut<C>; cut<C>
 _tail<R> (last R prompt tokens through every layer); mlp<C> (layers from C up keep their mixers, MLPs replaced by
-linear surrogates; skipkv.MLPSurrogates). The arithmetic share of skipped weight work (skipkv.skipped_share) is printed
+linear surrogates; depthskip.MLPSurrogates). The arithmetic share of skipped weight work (depthskip.skipped_share) is printed
 alongside.
 
     python experiments/bench.py --ckpt runs/x4b-mercurius-lora/model.pt --variants cut24 cut16 cut16_tail128 \
@@ -55,7 +55,7 @@ def main():
     ap.add_argument("--no-exact", action="store_true", help="skip the exact baseline (already measured)")
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
-    with gpu_lock("skipkv_bench"):
+    with gpu_lock("depthskip_bench"):
         bb = load_backbone(a, serving=a.serving)
         bb.cfg.prefill_chunk = a.chunk
         name = model_name(a)

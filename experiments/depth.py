@@ -1,9 +1,9 @@
-"""Per-token depth for the skipped prompt pass ("foveated depth", depthskip/depth.py) against the plain cuts
-and the two-call exact tail (RESULTS 21.2-21.3).
+"""Per-token depth for the skipped prompt pass (graded depth, depthskip/depth.py) against the plain cuts
+and the two-call exact tail (OpenDecider RESULTS §21.2-21.3).
 
 Arms (L = all layers):
-  cut24, cut16                 every prompt token cut there (skipkv)
-  cut16_tail32                 the 21.3 exact tail: last 32 prompt tokens through every layer
+  cut24, cut16                 every prompt token cut there (maps.py)
+  cut16_tail32                 the exact tail (RESULTS §21.3): last 32 prompt tokens through every layer
   g256 / g512                  graded: last 32 all layers, the previous 224 / 480 cut 24, the rest cut 16 (segments)
   f4/f64/f256_g512, f64_tail32 the FIRST 4 / 64 / 256 prompt tokens also through every layer (segments)
   d_tail32                     cut16_tail32 through the per-token quality path (equivalence check)
@@ -58,7 +58,7 @@ def main():
     ap.add_argument("--no-profile", action="store_true")
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
-    with gpu_lock("skipkv_depth"):
+    with gpu_lock("depthskip_depth"):
         bb = load_backbone(a)
         bb.skip_state = None
         L = len(bb.lm.layers)
