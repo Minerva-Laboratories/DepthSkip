@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/depthskip-dark.png">
-  <img alt="DepthSkip" src="docs/assets/depthskip-light.png" width="420">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Minerva-Laboratories/DepthSkip/main/docs/assets/depthskip-dark.png">
+  <img alt="DepthSkip" src="https://raw.githubusercontent.com/Minerva-Laboratories/DepthSkip/main/docs/assets/depthskip-light.png" width="420">
 </picture>
 
 ### Training-free layer skipping for the prompt pass of hybrid LLMs
@@ -10,11 +10,11 @@
 Prompt tokens stop at a cut layer. The layers above it only write their caches, from closed-form ridge maps.<br>
 The model stays frozen and decoding is unchanged: only the prompt (prefill) pass gets cheaper.
 
-[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-e07b39.svg)](LICENSE)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-e07b39.svg)](pyproject.toml)
-[![PyTorch 2.4+](https://img.shields.io/badge/pytorch-2.4%2B-e07b39.svg)](pyproject.toml)
-[![transformers 5.2+](https://img.shields.io/badge/transformers-5.2%2B-e07b39.svg)](pyproject.toml)
-[![Tests: 20 (CPU)](https://img.shields.io/badge/tests-20%20passing%20(CPU)-1baf7a.svg)](tests/test_depthskip.py)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-e07b39.svg)](https://github.com/Minerva-Laboratories/DepthSkip/blob/main/LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-e07b39.svg)](https://github.com/Minerva-Laboratories/DepthSkip/blob/main/pyproject.toml)
+[![PyTorch 2.4+](https://img.shields.io/badge/pytorch-2.4%2B-e07b39.svg)](https://github.com/Minerva-Laboratories/DepthSkip/blob/main/pyproject.toml)
+[![transformers 5.2+](https://img.shields.io/badge/transformers-5.2%2B-e07b39.svg)](https://github.com/Minerva-Laboratories/DepthSkip/blob/main/pyproject.toml)
+[![Tests: 20 (CPU)](https://img.shields.io/badge/tests-20%20passing%20(CPU)-1baf7a.svg)](https://github.com/Minerva-Laboratories/DepthSkip/blob/main/tests/test_depthskip.py)
 [![Used by: HgRT](https://img.shields.io/badge/used%20by-HgRT-2a78d6.svg)](https://github.com/Minerva-Laboratories/HgRT)
 
 [**How it works**](#how-it-works) ·
@@ -222,8 +222,8 @@ All measurements: **Jetson AGX Orin, `MODE_50W`**. Two models, both run as the b
 - **Mercurius-1-4B** ("4B"): 32 layers, MLA + GDN-2, 4-bit weights and cache;
 - **the 9B**: Qwen3.5-9B, 32 layers, full attention at layers 3, 7, ..., 31.
 
-Maps are `normed`, fitted on 200 FineWeb-Edu documents (256 tokens each). Raw outputs are in [`results/`](results/)
-(index: [`results/README.md`](results/README.md)). **The raw files predate the rename to DepthSkip:** they were
+Maps are `normed`, fitted on 200 FineWeb-Edu documents (256 tokens each). Raw outputs are in [`results/`](https://github.com/Minerva-Laboratories/DepthSkip/tree/main/results/)
+(index: [`results/README.md`](https://github.com/Minerva-Laboratories/DepthSkip/blob/main/results/README.md)). **The raw files predate the rename to DepthSkip:** they were
 written by OpenDecider's `scripts/skipkv_*.py` (now `experiments/*.py`), and their `ckpt` fields are OpenDecider run
 paths (`runs/x4b-mercurius-lora` = Mercurius-1-4B, `runs/x9b-clean3` = the 9B).
 
@@ -569,5 +569,5 @@ This is a set of measurements and a working implementation, not a new idea class
 
 ## License
 
-Apache-2.0: see [LICENSE](LICENSE) and [NOTICE](NOTICE). Model weights (Qwen3.5 and derived checkpoints) are not
+Apache-2.0: see [LICENSE](https://github.com/Minerva-Laboratories/DepthSkip/blob/main/LICENSE) and [NOTICE](https://github.com/Minerva-Laboratories/DepthSkip/blob/main/NOTICE). Model weights (Qwen3.5 and derived checkpoints) are not
 included. They are downloaded from their original repositories and keep their own licenses.
